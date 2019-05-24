@@ -1,0 +1,10 @@
+.phpdot-debug {
+	background-color: #fff;
+	color: #333;
+	font-family: monospace;
+	font-size:100%;
+}
+
+.phpdot-debug pre {
+	padding: 0;
+}

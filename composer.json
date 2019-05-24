@@ -1,0 +1,39 @@
+{
+  "name": "lisslet/phpdot",
+  "description": "PHP Library",
+  "keywords": [
+    "phpdot",
+    "dot",
+    "lisslet",
+    "liss"
+  ],
+  "homepage": "http://liss.work",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "protyliss",
+      "email": "protyliss@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.4",
+    "psr/log": "^1.1",
+    "psr/cache": "^1.0"
+  },
+  "require-dev": {
+  },
+  "suggest": {
+    "ext-json": "Using JSON",
+    "ext-mysqli": "Using mysqli driver",
+    "ext-pdo": "Using pdo driver"
+  },
+  "autoload": {
+    "psr-4": {
+      "Dot\\": "src/"
+    },
+    "files": [
+      "src/Global/Constants.php",
+      "src/Global/Functions.php"
+    ]
+  }
+}

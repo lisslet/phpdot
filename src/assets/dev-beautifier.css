@@ -1,0 +1,11 @@
+.phpdot-php-error {
+	font-family: consolas, monospace;
+}
+
+.phpdot-php-error li {
+	margin-bottom: 0.313em;
+}
+
+.phpdot-php-error li:last-child {
+	margin-bottom: 0;
+}

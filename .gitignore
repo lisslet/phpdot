@@ -1,0 +1,9 @@
+# IDEA
+.idea/
+
+# Composer
+vendor/
+composer.lock
+
+# Windows
+desktop.ini
