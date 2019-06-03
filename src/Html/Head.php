@@ -7,34 +7,39 @@ use Dot\Js;
 
 class Head
 {
-	protected $_styles = [];
-	protected $_scripts = [];
+    protected $_scripts = [];
+    /**
+     * @var Styles
+     */
+    public $styles;
 
-	function __toString()
-	{
-		$html = [];
-		foreach ($this->_styles as $href) {
-			$html[] = Css::import($href);
-		}
+    function __construct()
+    {
+        $this->styles = new Styles;
+    }
 
-		foreach ($this->_scripts as $src) {
-			$html[] = Js::import($src);
-		}
+    function __toString()
+    {
+        $html = [];
+        $html[] = $this->styles->__toString();
 
-		return \implode(PHP_EOL, $html);
-	}
+        foreach ($this->_scripts as $src) {
+            $html[] = Js::import($src);
+        }
 
-	function style(string $href)
-	{
-		$this->_styles[] = $href;
+        return \implode(PHP_EOL, $html);
+    }
 
-		return $this;
-	}
+    function style(string $url)
+    {
+        $this->styles->url($url);
+        return $this;
+    }
 
-	function script(string $src)
-	{
-		$this->_scripts[] = $src;
+    function script(string $src)
+    {
+        $this->_scripts[] = $src;
 
-		return $this;
-	}
+        return $this;
+    }
 }
