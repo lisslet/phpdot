@@ -85,7 +85,7 @@ class DBResult implements DBResultInterface
 		return $this->_current;
 	}
 
-	function count(){
+	function count(): int{
 		return $this->_length;
 	}
 }

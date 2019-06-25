@@ -23,5 +23,5 @@ interface SQLCommandInterface
 
 	function delete(string $table, $value = null, $field = DB::PRIMARY_KEY): SQLInterface;
 
-	function deleted(string $table, $value = null, $field = DB::PRIMARY_KEY): bool;
+	function deleted(string $table, $value = null, $field = DB::PRIMARY_KEY);
 }

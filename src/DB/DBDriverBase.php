@@ -132,7 +132,7 @@ abstract class DBDriverBase implements DBDriverInterface
 			->delete($table, $value, $field);
 	}
 
-	function deleted(string $table, $value = null, $field = DB::PRIMARY_KEY): bool {
+	function deleted(string $table, $value = null, $field = DB::PRIMARY_KEY) {
 		return $this->execute(
 			$this->sql()
 				->delete($table, $value, $field)
