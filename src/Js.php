@@ -10,7 +10,7 @@ abstract class Js
 
 	static function import(string $src)
 	{
-		return '<script src="' . $src . '"></script>' . \PHP_EOL;
+		return '<script src="' . $src . '"></script>' . PHP_EOL;
 	}
 
 	static function block($codes)

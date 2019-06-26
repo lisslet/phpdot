@@ -7,25 +7,35 @@ use Dot\Js;
 
 class Head
 {
-    protected $_scripts = [];
+    /**
+     * @var boolean
+     */
+    protected $_flushed;
+
     /**
      * @var Styles
      */
     public $styles;
 
+    /**
+     * @var Scripts
+     */
+    public $scripts;
+
+
     function __construct()
     {
         $this->styles = new Styles;
+        $this->scripts = new Scripts;
     }
 
     function __toString()
     {
+        $this->_flushed = true;
         $html = [];
-        $html[] = $this->styles->__toString();
 
-        foreach ($this->_scripts as $src) {
-            $html[] = Js::import($src);
-        }
+        $html[] = $this->styles->__toString();
+        $html[] = $this->scripts->__toString();
 
         return \implode(PHP_EOL, $html);
     }
@@ -36,10 +46,13 @@ class Head
         return $this;
     }
 
-    function script(string $src)
+    function script(string $url)
     {
-        $this->_scripts[] = $src;
-
+        if ($this->_flushed) {
+            echo Js::import($url);
+        } else {
+            $this->scripts->url($url);
+        }
         return $this;
     }
 }
