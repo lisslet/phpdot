@@ -67,7 +67,7 @@ abstract class DBDriverBase implements DBDriverInterface
 	function execute(SQLInterface $sql){
 		list($query, $params) = $sql->make();
 
-		// var_dump($query);
+		//var_dump($query);
 		$state = $this->getState($query, $params);
 
 		return $state->execute();
