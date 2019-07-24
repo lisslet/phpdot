@@ -69,7 +69,10 @@ abstract class TagBase
         foreach ($this->_attrs as $attrName) {
             $attrValue = $this->{$attrName} ?? '';
             if ($attrValue) {
-                $attrString[] = $attrName . '="' . $attrValue . '"';
+
+                $attrString[] = $attrValue === true ?
+                    $attrName :
+                    $attrName . '="' . $attrValue . '"';
             }
         }
 
@@ -110,7 +113,7 @@ abstract class TagBase
     protected function _getAttributes($tag): array
     {
         $traits = Dot::getTraits($tag);
-        $attrs = [];
+        $attrs = $this->_attributes ?? [];
         foreach ($traits as $className) {
             $ns = explode('\\', $className);
             list($type, $name) = array_splice($ns, count($ns) - 2, 2);

@@ -17,7 +17,8 @@ class ControlBase extends TagBase
         'max',
         'minLength',
         'maxLength',
-        'pattern'
+        'pattern',
+        'autofocus'
     ];
 
     /**
@@ -45,10 +46,13 @@ class ControlBase extends TagBase
 
     public $pattern;
 
+    public $autofocus;
+
     /**
      * @var string
      */
     public $label;
+
 
     function __construct(string $name = null, $value = null)
     {
@@ -110,10 +114,16 @@ class ControlBase extends TagBase
         return $this;
     }
 
+    function autofocus($flag = true)
+    {
+        $this->autofocus = $flag;
+        return $this;
+    }
+
+
     function label(string $value)
     {
         $this->label = $value;
         return $this;
     }
-
 }
